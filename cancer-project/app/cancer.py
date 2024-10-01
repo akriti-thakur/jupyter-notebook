@@ -24,7 +24,7 @@ st.set_page_config(
 
 
 def get_data():
-    data= pd.read_csv("C:/Users/akrit/Downloads/data.csv")
+    data= pd.read_csv("model\data.csv")
     data['diagnosis'] = data['diagnosis'].map({ 'M': 1, 'B': 0 })
     corr_matrix = data.corr().abs() 
 
