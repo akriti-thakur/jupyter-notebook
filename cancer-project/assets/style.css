@@ -1,4 +1,4 @@
-.css-j5r0tf {
+.st-emotion-cache-j5r0tf {
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: #7E99AB;
@@ -12,6 +12,11 @@
 
 .diagnosis.benign {
   background-color: #01DB4B
+}
+
+st-emotion-cache-9aoz2h{
+
+
 }
 
 .diagnosis.malicious {

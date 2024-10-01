@@ -131,7 +131,7 @@ def get_radar_chart(input_data):
                 fill='toself',
                 name=group.upper()
             ))
-    
+    ""
     fig.update_layout(
         polar=dict(radialaxis=dict(visible=True, range=[0, 1])),
         showlegend=True
@@ -145,7 +145,11 @@ def add_predictions(input_data):
     
     try:
         with open('../model/model.pkl', "rb") as model_file:
-            model = pickle.load(model_file)
+          model = pickle.load(model_file)
+            
+        with open('../model/scaler.pkl', "rb") as model_fi:
+          sca = pickle.load(model_fi)
+          
     except FileNotFoundError:
         st.error("Model file not found. Please check if 'model.pkl' exists in the correct path.")
         return
@@ -157,9 +161,13 @@ def add_predictions(input_data):
     input_array = np.array([input_data[feature] for feature in model_features]).reshape(1, -1)
     
     try:
-        prediction = model.predict(input_array)
-        probability = model.predict_proba(input_array)
-        
+      
+        input_array = np.array(list(input_data.values())).reshape(1, -1)
+  
+        input_array_scaled = sca.transform(input_array)
+        prediction = model.predict(input_array_scaled)
+        probability = model.predict_proba(input_array_scaled)
+      
         st.subheader("Cell Cluster Prediction")
         st.write("The cell cluster is:")
         
@@ -168,10 +176,10 @@ def add_predictions(input_data):
         else:
             st.write("<span class='diagnosis malicious'>Malicious</span>", unsafe_allow_html=True)
         
-        st.write(f"Probability of being benign: {probability[0][0]:.4f}")
-        st.write(f"Probability of being malicious: {probability[0][1]:.4f}")
+        st.write("Probability of being benign: ", model.predict_proba(input_array_scaled)[0][0])
+        st.write("Probability of being malicious: ", model.predict_proba(input_array_scaled)[0][1])
         
-        st.write("This app can assist medical professionals in making a diagnosis, but should not be used as a substitute for a professional diagnosis.")
+       
     except Exception as e:
         st.error(f"Error making prediction: {str(e)}")
 
