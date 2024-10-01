@@ -164,23 +164,27 @@ def get_radar_chart(input_data):
 
 
 def add_predictions(input_data):
+  
   try:
-    model_path = os.path.join(os.path.dirname(__file__), "model", "model.pkl")
-    with open(model/model_path, "rb") as model_file:
-        model = pickle.load(model_file)
+      with open('model\model.pkl', "rb") as model_file:
+          model = pickle.load(model_file)
   except FileNotFoundError:
-      st.error(f"Model file not found at {model_path}. Please check the file location.")
+      st.error("Model file not found. Please check the file location.")
       return
   except Exception as e:
       st.error(f"Error loading model: {str(e)}")
       return
+  
     
   
-  input_array = np.array(list(input_data.values())).reshape(1, -1)
+  input_data_as_numpy_array = np.asarray(input_data)
+
+# reshape the numpy array as we are predicting for one datapoint
+  input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
   
-  input_array_scaled = model.transform(input_array)
   
-  prediction = model.predict(input_array_scaled)
+  
+  prediction = model.predict(input_data_reshaped)
   
   st.subheader("Cell cluster prediction")
   st.write("The cell cluster is:")
@@ -191,8 +195,8 @@ def add_predictions(input_data):
     st.write("<span class='diagnosis malicious'>Malicious</span>", unsafe_allow_html=True)
     
   
-  st.write("Probability of being benign: ", model.predict_proba(input_array_scaled)[0][0])
-  st.write("Probability of being malicious: ", model.predict_proba(input_array_scaled)[0][1])
+  st.write("Probability of being benign: ", model.predict_proba(input_data_reshaped)[0][0])
+  st.write("Probability of being malicious: ", model.predict_proba(input_data_reshaped)[0][1])
   
   st.write("This app can assist medical professionals in making a diagnosis, but should not be used as a substitute for a professional diagnosis.")
 
@@ -210,7 +214,7 @@ def main():
         st.write("This is a prediction app which uses a machine learning model to determine whether a breast mass is benign or malignant based on the measurements it receives from your cytosis lab. You can also update the measurements by hand using the sliders in the sidebar.")
        
        
-    css_path = 'cancer-project\assets\style.css'   
+    css_path = 'assets\style.css'   
     try:
         with open(css_path) as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
