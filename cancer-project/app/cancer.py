@@ -16,11 +16,11 @@ def get_model_features():
         with open('../model/model.pkl', "rb") as model_file:
             model = pickle.load(model_file)
         
-        # If the model has feature names as an attribute
+       
         if hasattr(model, 'feature_names_in_'):
             return list(model.feature_names_in_)
         else:
-            # Load a sample of your training data to get feature names
+
             data = pd.read_csv("../model/data.csv")
             return list(data.drop('diagnosis', axis=1).columns)
     except Exception as e:
@@ -48,8 +48,7 @@ def add_side_bar():
         return None
     
     input_dict = {}
-    
-    # Create a mapping of display names to feature names
+
     feature_display_names = {
         'mean': "Mean",
         'se': "Standard Error",
@@ -57,19 +56,19 @@ def add_side_bar():
     }
     
     for feature in model_features:
-        # Split the feature name to get the measurement type and category
+
         parts = feature.split('_')
         if len(parts) >= 2:
             category = parts[0]
             measure_type = parts[-1]
             
-            # Create a more readable label
+
             if measure_type in feature_display_names:
                 display_name = f"{category.capitalize()} ({feature_display_names[measure_type]})"
             else:
                 display_name = feature.replace('_', ' ').title()
             
-            # Create the slider
+
             input_dict[feature] = st.sidebar.slider(
                 display_name,
                 min_value=float(data[feature].min()),
@@ -102,8 +101,7 @@ def get_radar_chart(input_data):
     scaled_data = get_scaled_values(input_data)
     if scaled_data is None:
         return None
-    
-    # Group features by type (mean, se, worst)
+
     feature_groups = {
         'mean': [],
         'se': [],
@@ -114,8 +112,7 @@ def get_radar_chart(input_data):
         for group in feature_groups:
             if feature.endswith(group):
                 feature_groups[group].append((feature, value))
-    
-    # Get unique categories (excluding the type suffix)
+
     categories = list(set(feature.split('_')[0] for feature in scaled_data.keys()))
     
     fig = go.Figure()
@@ -155,8 +152,7 @@ def add_predictions(input_data):
     except Exception as e:
         st.error(f"Error loading model: {str(e)}")
         return
-    
-    # Ensure the input features match the model's expected features
+
     model_features = get_model_features()
     input_array = np.array([input_data[feature] for feature in model_features]).reshape(1, -1)
     
