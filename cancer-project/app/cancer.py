@@ -210,7 +210,7 @@ def main():
         st.write("This is a prediction app which uses a machine learning model to determine whether a breast mass is benign or malignant based on the measurements it receives from your cytosis lab. You can also update the measurements by hand using the sliders in the sidebar.")
        
        
-    css_path = 'assets\style.css'    
+    css_path = 'cancer-project\assets\style.css'   
     try:
         with open(css_path) as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
