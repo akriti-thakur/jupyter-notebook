@@ -1,0 +1,62 @@
+Panjab University – Overview
+-----------------------------
+- Established in 1882 in Chandigarh. A prestigious institution offering diverse programs across sciences, engineering, arts, business, and law.
+- Emphasis on research infrastructure, interdisciplinary centers, and top national rankings.
+- Institutional Development Plan (IDP) 2025: Expanding research, launching interdisciplinary centers (e.g., Data Science & AI), strengthening industry partnerships, and boosting patents, publications, and Ph.D. programs.
+
+Department of Computer Science & Applications (DCSA)
+---------------------------------------------------
+- Offers MCA (2-year), M.Sc. (Honours in Computer Science – Data Science specialization), and Ph.D. programs.
+
+Courses & Specializations
+-------------------------
+- MCA (2 years): Focuses on advanced computer applications and industry-ready skills.
+- M.Sc. (Honours) in Computer Science (Data Science specialization): Covers AI, ML, Big Data, Cloud, and Data Analytics.
+- Ph.D.: Research-focused program in advanced domains of Computer Science.
+- Value-added courses offered:
+  - Artificial Intelligence
+  - Emerging Technologies in Computer Science
+  - Green Computing
+  - Introduction to Data Science
+  - Mobile Application Development
+  - Python Programming
+  - Web Application Development
+
+Fee Details (Approximate)
+-------------------------
+- MCA: ₹50,000 – ₹70,000 per year (varies by category).
+- M.Sc. (CS – Data Science): ₹45,000 – ₹60,000 per year.
+- Ph.D.: As per UGC norms with research funding opportunities.
+
+Lab & Research Facilities
+-------------------------
+- Multiple PC Labs equipped with Acer, HP Core i7, Core2Duo, and Core i5 systems.
+- Research Lab with specialized computing systems.
+- Servers: Dell PowerEdge, IBM System 3200 M3, HP ProLiant.
+- Printers: HP LaserJet, Canon series.
+- Projectors: LG, Sony, Casio models.
+- Licensed Software: Visual Studio, Turbo C, JDK, SQL Server, MATLAB, Red Hat Linux, MS Office.
+
+Campus Infrastructure
+----------------------
+- Fibre-optic Gigabit backbone interconnecting 38 buildings.
+- ~24 Mbps Internet connectivity (ERNET & Reliance).
+- High-performance computing (HPC) facilities with Sun workstations.
+- TIFAC ICOSER initiative enabling parallel computing.
+
+Faculty Activities & Publications
+---------------------------------
+- Tech Utsav 2025 (Inter-college Tech Fest) — April 4, 2025
+- Expert talk by Dr. Vijay Kumar Mago (York University, Canada) — March 6, 2025
+- International Conference “Computing Advances in AI and ML” — Dec 16–17, 2024
+- National Technology Day lecture on Digital Marketing — May 11, 2024
+
+Placements
+----------
+- Placement Rate: ~90–95%
+- Average Package: ₹6.5 LPA
+- Top Package: ₹7–8 LPA
+- Recruiters: Infosys and other reputed IT firms.
+- Internship opportunities available in later semesters; some lead to full-time offers.
+- Department size: ~100 students (morning + evening batches).
+
